@@ -1,0 +1,130 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+}
+
+header,
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+}
+
+footer {
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #4caf50;
+    color: white;
+    padding: 1rem;
+    flex-shrink: 0;
+}
+
+.content {
+    flex: 1;
+    padding: 1rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.content h2 {
+    margin-bottom: 1rem;
+}
+
+.cat-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 зображення в ряд для ПК */
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.cat-gallery div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cat-gallery img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+@media (max-width: 1200px) {
+    .main-content {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    header,
+    footer {
+        padding: 0.5rem;
+    }
+
+    .content {
+        font-size: 14px;
+    }
+
+    .sidebar {
+        display: none;
+        /* приховуємо бічну панель на маленьких екранах */
+    }
+
+    .cat-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 зображення в ряд для смартфонів */
+    }
+
+    .cat-gallery img {
+        width: 150px;
+        height: 150px;
+    }
+}
